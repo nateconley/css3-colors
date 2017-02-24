@@ -1,0 +1,22 @@
+<html>
+	<head>
+		<title>CSS3 Colors</title>
+		<link rel="stylesheet" href="./style.css">
+	</head>
+	<body>
+		<header>
+			<h1>CSS Colors</h1>
+			<h2><a href="http://nateconley.com">nateconley.com</a></h2>
+			<h2>Inspired by: <a href="http://www.colors.commutercreative.com/">http://www.colors.commutercreative.com/</a></h2>
+		</header>
+		<div id="app">
+			<div class="tiles">
+				<div v-for="color in colors" class="tile" :style="{ backgroundColor: color.hex }">
+					<p>{{ color.name }}</p>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	<script src="./scripts.js"></script>
+</html>

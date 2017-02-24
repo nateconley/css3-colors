@@ -1,0 +1,35 @@
+/**
+ * Body styles
+ */
+body {
+	margin: 0;
+}
+
+/**
+ * Header styles
+ */
+header {
+ font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+ text-align: center;
+}
+
+header a {
+	color: steelblue;
+}
+
+/**
+ * Tile styles
+ */
+.tiles {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.tile {
+	align-items: center;
+	cursor: pointer;
+	display: flex;
+	height: 25vh;
+	justify-content: center;
+	width: 25%;
+}
