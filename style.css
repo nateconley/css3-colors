@@ -10,6 +10,7 @@ body {
  */
 header {
  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+ margin: 2rem 0;
  text-align: center;
 }
 
@@ -29,7 +30,17 @@ header a {
 	align-items: center;
 	cursor: pointer;
 	display: flex;
-	height: 25vh;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 1.2rem;
+	font-weight: 700;
 	justify-content: center;
-	width: 25%;
+}
+
+.tile.full {
+	font-size: 4rem;
+	height: 100vh !important; /* Overwrite vue inline styles */
+	left: 0;
+	position: fixed;
+	top: 0;
+	width: 100vw !important; /* Overwrite vue inline styles */
 }

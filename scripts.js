@@ -9,8 +9,8 @@ fetch('colors.json')
 		return response.json();
 	})
 	.then(function(json) {
-		console.log(json.colors);
 		app.colors = json.colors;
+		blackOrWhite(app.colors);
 	})
 	.catch(function(err) {
 		alert('There was an error!');
@@ -19,10 +19,31 @@ fetch('colors.json')
 var app = new Vue({
 	el: '#app',
 	data: {
-		seen: true,
 		colors: [],
-	}
+		height: '25%',
+		width: '25%',
+	},
+	methods: {
+		fullSize: function(color) {
+			color.isFull = !color.isFull;
+			console.log(color);
+		}
+	},
 });
+
+/**
+ * Figure out if text color should be black or white
+ */
+function blackOrWhite(colors) {
+	colors.forEach(color => {
+		const luminance = hexToHsl(color.hex)[2];
+		if (luminance > 0.5) {
+			color.fontColor = '#000';
+		} else {
+			color.fontColor = '#fff';
+		}
+	})
+}
 
 /**
  * Take a hex string and return its complement in hsl array
@@ -134,6 +155,14 @@ function hueToRgb(p, q, t) {
 	if (t < 1/2) return q;
 	if (t < 2/3) return p + (q - p) * (2/3 - t) * 6;
 	return p;
+}
+
+/**
+ * Use our other functions to convert hex string to hsl array
+ */
+function hexToHsl(hex) {
+	const rgb = hexToRgb(hex);
+	return rgbToHsl(rgb);
 }
 
 

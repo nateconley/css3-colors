@@ -11,8 +11,8 @@
 		</header>
 		<div id="app">
 			<div class="tiles">
-				<div v-for="color in colors" class="tile" :style="{ backgroundColor: color.hex }">
-					<p>{{ color.name }}</p>
+				<div v-for="color in colors" class="tile" v-bind:class="{ full: color.isFull }" :style="{ backgroundColor: color.hex, 'color' : color.fontColor, width: width, height: height }" @click="fullSize(color)">
+					<p :style="{ color: color.fontColor }">{{ color.name }}</p>
 				</div>
 			</div>
 		</div>
